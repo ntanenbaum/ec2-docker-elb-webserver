@@ -1,0 +1,9 @@
+*.terraform 
+*.terraform.lock.hcl
+*.out
+*.retry
+*.log
+*.tfstate
+*.backup
+*.aws/
+
