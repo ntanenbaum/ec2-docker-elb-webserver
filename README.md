@@ -7,8 +7,8 @@ Objective
 ```yaml
 Write automation with Terraform
 
-Two EC2 instances, each will have the following docker container, run without modification of the image
-yeasy/simple-web
+Two EC2 instances, each will have the following docker container, run without modification
+of the image yeasy/simple-web
 
 The container listens internally on port 80. It should be exposed on the instance on port 8080
 
