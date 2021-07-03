@@ -4,6 +4,7 @@ Two AWS EC2 instances running a docker webserver (yeasy/simple-web:latest) conta
 
 Objective
 ---------
+```bash
 Write automation with Terraform
 
 Two EC2 instances, each will have the following docker container, run without modification of the image
@@ -14,29 +15,30 @@ The container listens internally on port 80. It should be exposed on the instanc
 The instance should not allow access to the webapp except via the load balancer
 
 An Elastic Load Balancer that listens on port 80 and forwards all traffic to both EC2 instances
+```
 
 Layout
 ------
-One Bastion Instance within the public subnet
-Two EC2 Instances running a Web Server on each via Docker Container (yeasy/simple-web ) within the private subnet
-Bastion Host is able to ssh into each EC2 Instance
-Both EC2 Instances behind an AWS ELB (Classic) listening on web port 80
-Both EC2 Instances security group allows inbound (ingress) ssh from the Bastion Instance
-Both EC2 Instances security group allows inbound from the ELB security group
-The ELB security group allows outbound on port 8080 (EC2 instance port)
+One Bastion Instance within the public subnet <br />
+Two EC2 Instances running a Web Server on each via Docker Container (yeasy/simple-web ) within the private subnet <br />
+Bastion Host is able to ssh into each EC2 Instance <br />
+Both EC2 Instances behind an AWS ELB (Classic) listening on web port 80 <br />
+Both EC2 Instances security group allows inbound (ingress) ssh from the Bastion Instance <br />
+Both EC2 Instances security group allows inbound from the ELB security group <br />
+The ELB security group allows outbound on port 8080 (EC2 instance port) <br />
 ELB health check TCP port 80
 
 Network
 -------
-VPC - 10.0.0.0/26
-Internet GW - router connects a VPC to the internet
-Public Route Table - associated with VPC and allow traffic to IG
-Public Subnet - 10.0.0.0/28
-Route Table Association - Associate public subnet with a IG route
-NAT GW - Associate to Public Subnet and the Elastic IP Address (Reserved public IP address that you can assign to any EC2 instance to mask failure)
-Private Subnet - 10.0.0.16/28
-Private Route table - Control network traffic
-Private Route Table - allow traffic utilizing the route to NAT Gateway
+VPC - 10.0.0.0/26 <br />
+Internet GW - router connects a VPC to the internet <br />
+Public Route Table - associated with VPC and allow traffic to IG <br />
+Public Subnet - 10.0.0.0/28 <br />
+Route Table Association - Associate public subnet with a IG route <br />
+NAT GW - Associate to Public Subnet and the Elastic IP Address (Reserved public IP address that you can assign to any EC2 instance to mask failure) <br />
+Private Subnet - 10.0.0.16/28 <br />
+Private Route table - Control network traffic <br />
+Private Route Table - allow traffic utilizing the route to NAT Gateway <br />
 Route Table Association - Associate private subnet with a IG route
 
 
