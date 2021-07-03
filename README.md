@@ -4,7 +4,7 @@ Two AWS EC2 instances running a docker webserver (yeasy/simple-web:latest) conta
 
 Objective
 ---------
-```bash
+```yaml
 Write automation with Terraform
 
 Two EC2 instances, each will have the following docker container, run without modification of the image
