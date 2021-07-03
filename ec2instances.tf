@@ -54,7 +54,7 @@ resource "aws_instance" "ntwebsvr" {
   disable_api_termination = false
   associate_public_ip_address = false
   monitoring = false
-  user_data = file("userdataweb.sh")
+  user_data = file("scripts/userdataweb.sh")
 
   tags = {
       Name = "nt-webserver0${count.index+1}"
